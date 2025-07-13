@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTarot", "LoadTarot\LoadTarot.csproj", "{467551B1-30F8-4C5F-8AB8-3AC4A3375260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateVectorStore", "CreateVectorStore\CreateVectorStore.csproj", "{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esmeralda", "Esmeralda\Esmeralda.csproj", "{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{467551B1-30F8-4C5F-8AB8-3AC4A3375260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467551B1-30F8-4C5F-8AB8-3AC4A3375260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467551B1-30F8-4C5F-8AB8-3AC4A3375260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467551B1-30F8-4C5F-8AB8-3AC4A3375260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B65D1D5-7244-40E9-B0BF-4C3B1BA01F11}
+	EndGlobalSection
+EndGlobal

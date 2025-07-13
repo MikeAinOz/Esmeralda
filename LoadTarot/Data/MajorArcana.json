@@ -1,0 +1,136 @@
+{
+  "items": [
+    {
+      "number": 0,
+      "name": "The Fool",
+      "filename": "1-01.png",
+      "divination": "Folly, mania, extravagance, intoxication,delirium, frenzy, bewrayment. Reversed: Negligence, absence, distribution, carelessness, apathy, nullity, vanity."
+    },
+    {
+      "number": 1,
+      "name": "The Magician",
+      "filename": "1-02.png",
+      "divination": "Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male. Reversed: Physician, Magus, mental disease, disgrace, disquiet"
+    },
+    {
+      "number": 2,
+      "name": "The High Priestess",
+      "filename": "1-03.png",
+      "divination": "Secrets, mystery, the future as yet unrevealed; the woman who interests the Querent, if male; the Querent herself, if female; silence, tenacity; mystery, wisdom, science. Reversed: Passion, moral or physical ardor, conceit, surface knowledge."
+    },
+    {
+      "number": 3,
+      "name": "The Empress",
+      "filename": "1-04.png",
+      "divination": "Fruitfulness, action, initiative, length of days; the unknown, clandestine; also difficulty, doubt, ignorance. Reversed: Light, truth, the unravelling of involved matters, public rejoicings; according to another reading, vacillation."
+    },
+    {
+      "number": 4,
+      "name": "The Emperor",
+      "filename": "1-05.png",
+      "divination": "Stability, power, protection, realization; a great person; aid, reason, conviction; also authority and will. Reversed: Benevolence, compassion, credit; also confusion to enemies, obstruction, immaturity."
+    },
+    {
+      "number": 5,
+      "name": "The Hierophant",
+      "filename": "1-06.png",
+      "divination": "Marriage, alliance, captivity, servitude; by another account, mercy and goodness; inspiration; the man to whom the Querent has recourse. Reversed: Society, good understanding, concord, over-kindness, weakness"
+    },
+    {
+      "number": 6,
+      "name": "The Lovers",
+      "filename": "1-07.png",
+      "divination": "Attraction, love, beauty, trials overcome. Reversed: Failure, foolish designs. Another account speaks of marriage frustrated and contrarieties of all kinds."
+    },
+    {
+      "number": 7,
+      "name": "The Chariot",
+      "filename": "1-08.png",
+      "divination": "Succor, providence; also war, triumph, presumption, vengeance, trouble. Reversed: Riot, quarrel, dispute, litigation, defeat."
+    },
+    {
+      "number": 8,
+      "name": "Strength",
+      "filename": "1-12.png",
+      "divination": "Power, energy, action, courage, magnanimity; also complete success and honors. Reversed: Despotism, abuse of power, weakness, discord, sometimes even disgrace."
+    },
+    {
+      "number": 9,
+      "name": "The Hermit",
+      "filename": "1-10.png",
+      "divination": "Prudence, circumspection; also and especially treason, dissimulation, roguery, corruption. Reversed: Concealment, disguise, policy, fear, unreasoned caution."
+    },
+    {
+      "number": 10,
+      "name": "Wheel of Fortune",
+      "filename": "1-11.png",
+      "divination": "Destiny, fortune, success, elevation, luck, felicity. Reversed: Increase, abundance, superfluity."
+    },
+    {
+      "number": 11,
+      "name": "Justice",
+      "filename": "1-09.png",
+      "divination": "Equity, rightness, probity, executive; triumph of the deserving side in law. Reversed: Law in all its departments, legal complications, bigotry, bias, excessive severity."
+    },
+    {
+      "number": 12,
+      "name": "The Hanged Man",
+      "filename": "1-13.png",
+      "divination": "Wisdom, circumspection, discernment, trials, sacrifice, intuition, divination, prophecy. Reversed: Selfishness, the crowd, body politic."
+    },
+    {
+      "number": 13,
+      "name": "Death",
+      "filename": "1-14.png",
+      "divination": "End, mortality, destruction, corruption; also, for a man, the loss of a benefactor; for a woman, many contrarieties; for a maid, failure of marriage projects. Reversed: Inertia, sleep, lethargy, petrifaction, somnambulism; hope destroyed."
+    },
+    {
+      "number": 14,
+      "name": "Temperance",
+      "filename": "1-15.png",
+      "divination": "Economy, moderation, frugality, management, accommodation. Reversed: Things connected with churches, religions, sects, the priesthood, sometimes even the priest who will marry the Querent; also disunion, unfortunate combinations, competing interests."
+    },
+    {
+      "number": 15,
+      "name": "The Devil",
+      "filename": "1-16.png",
+      "divination": "Ravage, violence, vehemence, extraordinary efforts, force, fatality; that which is predestined but is not for this reason evil. Reversed: Evil fatality, weakness, pettiness, blindness."
+    },
+    {
+      "number": 16,
+      "name": "The Tower",
+      "filename": "1-17.png",
+      "divination": "Misery, distress, indigence, adversity, calamity, disgrace, deception, ruin. It is a card in particular of unforeseen catastrophe. Reversed: According to one account, the same in a lesser degree; also oppression, imprisonment, tyranny."
+    },
+    {
+      "number": 17,
+      "name": "The Star",
+      "filename": "1-18.png",
+      "divination": "Loss, theft, privation, abandonment; another reading says--hope and bright prospects. Reversed: Arrogance, haughtiness, impotence."
+    },
+    {
+      "number": 18,
+      "name": "The Moon",
+      "filename": "1-19.png",
+      "divination": "Hidden enemies, danger, calumny, darkness, terror, deception, occult forces, error. Reversed: Instability, inconstancy, silence, lesser degrees of deception and error."
+    },
+    {
+      "number": 19,
+      "name": "The Sun",
+      "filename": "1-20.png",
+      "divination": "--Material happiness, fortunate marriage, contentment. _Reversed_: The same in a lesser sense."
+    },
+    {
+      "number": 20,
+      "name": "Judgement",
+      "filename": "1-21.png",
+      "divination": "Change of position, renewal, outcome. Another account specifies total loss through lawsuit. Reversed: Weakness, pusillanimity, simplicity; also deliberation, decision, sentence."
+    },
+    {
+      "number": 21,
+      "name": "The World",
+      "filename": "1-22.png",
+      "divination": "Assured success, recompense, voyage, route, emigration, flight, change of place. _Reversed_: Inertia, fixity, stagnation, permanence"
+    }
+  ]
+}
