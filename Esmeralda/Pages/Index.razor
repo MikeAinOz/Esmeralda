@@ -1,8 +1,9 @@
 ﻿@page "/"
-@using LoadTarot
 
 <PageTitle>Index</PageTitle>
-
+<div id="networkContainer">
+    <canvas id="networkCanvas"></canvas>
+</div>
 <h1>Hello, Seeker!</h1>
 
 <div class="row">
@@ -40,29 +41,15 @@
 <div class="m-3">
     @esmeraldaResponse
 </div>
+<script src="/js/network.min.js"></script>
+<script>
+    nwSetup.canvasId = 'networkCanvas';
+    nwSetup.parentId = 'networkContainer';
+    nwSetup.networkColor = '#00ffff'; // Aqua mesh
+    nwSetup.backgroundColor = '#ffffff'; // White background
+    nwSetup.interactive = true;
+    nwSetup.nodeRadius = 2;
+    nwSetup.lineWidth = 0.8;
+    nwRender();
+</script>
 
-@code {
-    private string? imageSource;
-    private string? card1 = "img/1-23.png";
-    private string? card2 = "img/1-23.png";
-    private string? card3 = "img/1-23.png";
-    private string? card1name = "";
-    private string? card2name = "";
-    private string? card3name = "";
-    private string? enteredText = null;
-    private bool disabled = false;
-    private string? esmeraldaResponse = null;
-
-    private void LoadCards()
-    {
-        int numberOfCards = 3;
-        TarotCard[] cardNumbers = Tarot.CreateCards(numberOfCards);
-        card1 = cardNumbers[0].ImageAsBase64;
-        card1name = cardNumbers[0].DisplayName;
-        card2 = cardNumbers[1].ImageAsBase64;
-        card2name = cardNumbers[1].DisplayName;
-        card3 = cardNumbers[2].ImageAsBase64;
-        card3name = cardNumbers[2].DisplayName;
-        esmeraldaResponse = "Esmeraldas Fortunes are not yet available";
-    }
-}
