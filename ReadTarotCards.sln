@@ -5,8 +5,6 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTarot", "LoadTarot\LoadTarot.csproj", "{467551B1-30F8-4C5F-8AB8-3AC4A3375260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateVectorStore", "CreateVectorStore\CreateVectorStore.csproj", "{7CDC766D-E5F9-47CD-B3D3-0EC7E66F4B24}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esmeralda", "Esmeralda\Esmeralda.csproj", "{2ABA0D42-3EFE-4474-BEA5-3FF163DD9C26}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskOpenAI", "AskOpenAI\AskOpenAI.csproj", "{B5C7CB38-6F40-438A-B325-DA3DC34879C4}"
