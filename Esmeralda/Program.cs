@@ -1,4 +1,4 @@
-using Esmeralda.Data;
+//using Esmeralda.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -13,7 +13,7 @@ namespace Esmeralda
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<WeatherForecastService>();
+        
 
             var app = builder.Build();
 
