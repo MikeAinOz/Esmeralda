@@ -34,8 +34,16 @@
 </div>
 
 <div class="m-3">
-    <button @onclick="() => LoadCards()">
-        Ask Esmeralda
+    <button class="btn btn-primary" type="button" @onclick="LoadCards" disabled="@disabled">
+        @if (isLoading)
+        {
+            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            <text>Reading your cards...</text>
+        }
+        else
+        {
+            <text>Ask Esmeralda</text>
+        }
     </button>
 </div>
 <div class="m-3">
@@ -50,6 +58,7 @@
     nwSetup.interactive = true;
     nwSetup.nodeRadius = 2;
     nwSetup.lineWidth = 0.8;
+    nwSetup.nodeShape = 'star';
     nwRender();
 </script>
 

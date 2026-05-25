@@ -52,7 +52,7 @@ namespace AskDeepSeek
                 Model = deploymentName
             };
 
-            Response<ChatCompletions> response = client.Complete(requestOptions);
+            Response<ChatCompletions> response = await Task.Run(() => client.Complete(requestOptions));
             return Regex.Replace(response.Value.Content, @"<think>.*?</think>", string.Empty, RegexOptions.Singleline);
         }
     }

@@ -18,26 +18,38 @@ namespace Esmeralda.Pages
         private string? card3name = "";
         private string? enteredText = null;
         private bool disabled = false;
+        private bool isLoading = false;
         private MarkupString? esmeraldaResponse = null;
 
         private async Task LoadCards()
         {
-            int numberOfCards = 3;
-            TarotCard[] cardNumbers = Tarot.CreateCards(numberOfCards);
-            card1 = cardNumbers[0].ImageAsBase64;
-            card1name = cardNumbers[0].DisplayName;
-            card2 = cardNumbers[1].ImageAsBase64;
-            card2name = cardNumbers[1].DisplayName;
-            card3 = cardNumbers[2].ImageAsBase64;
-            card3name = cardNumbers[2].DisplayName;
+            disabled = true;
+            isLoading = true;
+            StateHasChanged();
+            await Task.Yield();
 
-           // var fortune = await ReadTheCards.TellFortune(cardNumbers, enteredText);
-            var fortune = await ReadDeepSeek.TellFortune(cardNumbers, enteredText);
-            var safeText = System.Net.WebUtility.HtmlEncode(fortune);
-            var htmlText = Markdown.ToHtml(safeText);
-            esmeraldaResponse = (MarkupString)htmlText;
+            try
+            {
+                int numberOfCards = 3;
+                TarotCard[] cardNumbers = Tarot.CreateCards(numberOfCards);
+                card1 = cardNumbers[0].ImageAsBase64;
+                card1name = cardNumbers[0].DisplayName;
+                card2 = cardNumbers[1].ImageAsBase64;
+                card2name = cardNumbers[1].DisplayName;
+                card3 = cardNumbers[2].ImageAsBase64;
+                card3name = cardNumbers[2].DisplayName;
 
-
+               // var fortune = await ReadTheCards.TellFortune(cardNumbers, enteredText);
+                var fortune = await ReadDeepSeek.TellFortune(cardNumbers, enteredText);
+                var safeText = System.Net.WebUtility.HtmlEncode(fortune);
+                var htmlText = Markdown.ToHtml(safeText);
+                esmeraldaResponse = (MarkupString)htmlText;
+            }
+            finally
+            {
+                disabled = false;
+                isLoading = false;
+            }
         }
     }
 }
