@@ -34,7 +34,7 @@
 </div>
 
 <div class="m-3">
-    <button class="btn btn-primary" type="button" @onclick="LoadCards" disabled="@disabled">
+    <button class="btn btn-teal" type="button" @onclick="LoadCards" disabled="@disabled">
         @if (isLoading)
         {
             <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
@@ -53,7 +53,7 @@
 <script>
     nwSetup.canvasId = 'networkCanvas';
     nwSetup.parentId = 'networkContainer';
-    nwSetup.networkColor = '#00ffff'; // Aqua mesh
+    nwSetup.networkColor = '#800080'; // Purple mesh
     nwSetup.backgroundColor = '#ffffff'; // White background
     nwSetup.interactive = true;
     nwSetup.nodeRadius = 2;

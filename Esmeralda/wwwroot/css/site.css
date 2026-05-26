@@ -12,14 +12,39 @@ a, .btn-link {
     color: #0071c1;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-teal {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #008080;
+    border-color: #006f6f;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.show>.btn-primary.dropdown-toggle,
+.btn-teal:hover,
+.btn-teal:focus,
+.btn-teal:active,
+.btn-teal.active,
+.show>.btn-teal.dropdown-toggle {
+    color: #fff;
+    background-color: #007373;
+    border-color: #006464;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled,
+.btn-teal.disabled,
+.btn-teal:disabled {
+    color: #fff;
+    background-color: #008080;
+    border-color: #006f6f;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #006f6f;
 }
 
 .content {
