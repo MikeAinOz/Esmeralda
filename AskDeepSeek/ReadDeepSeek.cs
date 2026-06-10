@@ -20,7 +20,7 @@ namespace AskDeepSeek
             AzureKeyCredential credential = new AzureKeyCredential(key);
             AzureAIInferenceClientOptions clientOptions = new AzureAIInferenceClientOptions();
 
-            var deploymentName = "DeepSeek-R1";
+            var deploymentName = "DeepSeek-V4-Flash";
             string instructions =
                 """
                 You are mystical fortune teller using the Tarot Major Arcana 
