@@ -7,11 +7,11 @@ html, body {
 }
 
 html {
-    background-color: #05020a;
+    background-color: #1a0d2b;
     background-image:
-        radial-gradient(circle at top left, rgba(169, 86, 255, 0.28), transparent 30%),
-        radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.18), transparent 24%),
-        linear-gradient(135deg, #05020a 0%, #140726 45%, #04010b 100%);
+        radial-gradient(circle at 18% 18%, rgba(232, 194, 255, 0.30), transparent 36%),
+        radial-gradient(circle at 80% 20%, rgba(121, 214, 255, 0.14), transparent 24%),
+        linear-gradient(135deg, #24113a 0%, #2f1750 46%, #170824 100%);
     background-attachment: fixed;
 }
 
@@ -137,7 +137,7 @@ button.btn-teal:disabled {
     overflow: hidden;
     pointer-events: none;
     background:
-        linear-gradient(135deg, rgba(5, 2, 10, 0.68), rgba(12, 4, 24, 0.35)),
+        linear-gradient(135deg, rgba(38, 16, 60, 0.22), rgba(18, 8, 30, 0.08)),
         url('/img/glowing-fantasy-background.jpg') center/cover no-repeat;
 }
 
