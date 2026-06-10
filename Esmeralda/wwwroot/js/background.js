@@ -1,58 +1,5 @@
-﻿@page "/"
-
-<PageTitle>Index</PageTitle>
-<div id="networkContainer">
-    <canvas id="constellationCanvas"></canvas>
-    <canvas id="networkCanvas"></canvas>
-</div>
-<h1>Hello, Seeker!</h1>
-
-<div class="row">
-    <div class="fixed-width-col">
-        <figure>
-            <img src="@card1" class="my-image img-fluid" alt="@card1name">
-            <figcaption class="text-center">@card1name</figcaption>
-        </figure>
-    </div>
-    <div class="fixed-width-col">
-        <figure>
-            <img src="@card2" class="my-image img-fluid" alt="@card2name">
-            <figcaption class="text-center">@card2name</figcaption>
-        </figure>
-    </div>
-    <div class="fixed-width-col">
-        <figure>
-            <img src="@card3" class="my-image img-fluid" alt="@card3name">
-            <p class="text-center">@card3name</p>
-        </figure>
-    </div>
-</div>
-
-    
-<div class="m-3">
-    <p>What is your question, seeker?</p>
-    <InputText @bind-Value="@enteredText" Disabled="@disabled" Placeholder="What do you seek?" class="w-100" />
-</div>
-
-<div class="m-3">
-    <button class="btn btn-teal" type="button" @onclick="LoadCards" disabled="@disabled">
-        @if (isLoading)
-        {
-            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-            <text>Reading your cards...</text>
-        }
-        else
-        {
-            <text>Ask Esmeralda</text>
-        }
-    </button>
-</div>
-<div class="m-3">
-    @esmeraldaResponse
-</div>
-
-<script>
-    window.zodiacConstellations = window.zodiacConstellations || [
+(function () {
+    const zodiacConstellations = [
         { name: 'Aries', stars: [{x:0.12,y:0.18},{x:0.18,y:0.22},{x:0.22,y:0.20}], lines: [[0,1],[1,2]] },
         { name: 'Taurus', stars: [{x:0.30,y:0.12},{x:0.34,y:0.18},{x:0.38,y:0.14},{x:0.42,y:0.22}], lines: [[0,1],[1,2],[2,3]] },
         { name: 'Gemini', stars: [{x:0.55,y:0.10},{x:0.58,y:0.16},{x:0.62,y:0.12},{x:0.64,y:0.20}], lines: [[0,1],[1,2],[2,3]] },
@@ -67,6 +14,16 @@
         { name: 'Pisces', stars: [{x:0.80,y:0.68},{x:0.84,y:0.74},{x:0.88,y:0.70}], lines: [[0,1],[1,2]] }
     ];
 
+    const networkConfig = {
+        background: '#05020a',
+        connectionColor: 'rgba(164, 60, 255, 0.22)',
+        nodeColor: 'rgba(204, 153, 255, 0.90)',
+        nodeRadius: 2.5,
+        nodeCount: 72,
+        connectionDistance: 138,
+        speed: 0.35,
+    };
+
     function setupConstellationCanvas() {
         const canvas = document.getElementById('constellationCanvas');
         const parent = document.getElementById('networkContainer');
@@ -74,7 +31,7 @@
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        function resize() {
+        const resize = () => {
             const dpr = window.devicePixelRatio || 1;
             const width = parent.clientWidth;
             const height = parent.clientHeight;
@@ -84,16 +41,16 @@
             canvas.height = Math.floor(height * dpr);
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             draw();
-        }
+        };
 
-        function draw() {
+        const draw = () => {
             const width = parent.clientWidth;
             const height = parent.clientHeight;
             ctx.clearRect(0, 0, width, height);
             ctx.strokeStyle = 'rgba(255,255,255,0.22)';
             ctx.fillStyle = 'rgba(255,255,255,0.9)';
             ctx.lineWidth = 1;
-            window.zodiacConstellations.forEach(constellation => {
+            zodiacConstellations.forEach(constellation => {
                 constellation.lines.forEach(([a, b]) => {
                     const from = constellation.stars[a];
                     const to = constellation.stars[b];
@@ -110,7 +67,7 @@
                     ctx.fill();
                 });
             });
-        }
+        };
 
         window.addEventListener('resize', resize);
         resize();
@@ -123,32 +80,11 @@
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const config = {
-            background: 'transparent',
-            lineColor: 'rgba(164, 60, 255, 0.18)',
-            nodeColor: 'rgba(204, 153, 255, 0.95)',
-            nodeRadius: 2.5,
-            nodeCount: 80,
-            connectionDistance: 130,
-            speed: 0.35,
-        };
-
         let width = 0;
         let height = 0;
         const nodes = [];
 
-        function createNode() {
-            return {
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * config.speed,
-                vy: (Math.random() - 0.5) * config.speed,
-                radius: config.nodeRadius,
-                alpha: 0.4 + Math.random() * 0.6,
-            };
-        }
-
-        function resize() {
+        const reset = () => {
             const dpr = window.devicePixelRatio || 1;
             width = parent.clientWidth;
             height = parent.clientHeight;
@@ -157,30 +93,33 @@
             canvas.width = Math.floor(width * dpr);
             canvas.height = Math.floor(height * dpr);
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
+            nodes.length = 0;
+            for (let i = 0; i < networkConfig.nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * networkConfig.speed,
+                    vy: (Math.random() - 0.5) * networkConfig.speed,
+                    alpha: 0.5 + Math.random() * 0.5,
+                });
+            }
+        };
 
-        function updateNodes() {
-            nodes.forEach(node => {
-                node.x += node.vx;
-                node.y += node.vy;
-                if (node.x < 0 || node.x > width) node.vx *= -1;
-                if (node.y < 0 || node.y > height) node.vy *= -1;
-                node.alpha = 0.4 + Math.sin(Date.now() * 0.001 + node.x + node.y) * 0.25;
-            });
-        }
-
-        function drawNetwork() {
+        const draw = () => {
             ctx.clearRect(0, 0, width, height);
-
+            ctx.fillStyle = networkConfig.background;
+            ctx.fillRect(0, 0, width, height);
             ctx.lineWidth = 0.8;
-            nodes.forEach((node, index) => {
-                for (let j = index + 1; j < nodes.length; j++) {
+
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                for (let j = i + 1; j < nodes.length; j++) {
                     const other = nodes[j];
                     const dx = node.x - other.x;
                     const dy = node.y - other.y;
                     const dist = Math.hypot(dx, dy);
-                    if (dist < config.connectionDistance) {
-                        const alpha = ((config.connectionDistance - dist) / config.connectionDistance) * 0.22;
+                    if (dist < networkConfig.connectionDistance) {
+                        const alpha = ((networkConfig.connectionDistance - dist) / networkConfig.connectionDistance) * 0.18;
                         ctx.strokeStyle = `rgba(164, 60, 255, ${alpha.toFixed(3)})`;
                         ctx.beginPath();
                         ctx.moveTo(node.x, node.y);
@@ -188,51 +127,36 @@
                         ctx.stroke();
                     }
                 }
-            });
+            }
 
             nodes.forEach(node => {
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(204, 153, 255, ${Math.max(0.4, node.alpha).toFixed(2)})`;
-                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                const alpha = Math.max(0.35, node.alpha);
+                ctx.fillStyle = `rgba(204, 153, 255, ${alpha.toFixed(2)})`;
+                ctx.arc(node.x, node.y, networkConfig.nodeRadius, 0, Math.PI * 2);
                 ctx.fill();
             });
-        }
+        };
 
-        function animate() {
-            updateNodes();
-            drawNetwork();
-            requestAnimationFrame(animate);
-        }
+        const step = () => {
+            nodes.forEach(node => {
+                node.x += node.vx;
+                node.y += node.vy;
+                if (node.x <= 0 || node.x >= width) node.vx *= -1;
+                if (node.y <= 0 || node.y >= height) node.vy *= -1;
+                node.alpha = 0.45 + Math.sin(Date.now() * 0.001 + node.x + node.y) * 0.25;
+            });
+            draw();
+            requestAnimationFrame(step);
+        };
 
-        function initializeNodes() {
-            nodes.length = 0;
-            for (let i = 0; i < config.nodeCount; i++) {
-                nodes.push(createNode());
-            }
-        }
-
-        window.addEventListener('resize', () => {
-            resize();
-            initializeNodes();
-        });
-
-        resize();
-        initializeNodes();
-        animate();
+        window.addEventListener('resize', reset);
+        reset();
+        step();
     }
 
-    function ready(fn) {
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            fn();
-        } else {
-            window.addEventListener('load', fn);
-        }
-    }
-
-    ready(() => {
-        setupConstellationCanvas();
+    window.addEventListener('load', () => {
         setupNetworkCanvas();
+        setupConstellationCanvas();
     });
 })();
-</script>
-
