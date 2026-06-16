@@ -18,6 +18,7 @@ html {
 
 body {
     background-color: transparent;
+    padding-bottom: 3.75rem; /* reserve space for fixed footer */
 }
 
 h1:focus {
@@ -164,4 +165,42 @@ button.btn-teal:disabled {
     right: auto !important;
     bottom: auto !important;
     margin: 0;
+}
+
+/* Footer styles */
+.site-footer {
+    padding: 0 1.25rem;
+    text-align: center;
+    color: #e6e6f0;
+    font-size: 0.9rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 -6px 18px rgba(4,6,14,0.55);
+}
+
+.site-footer hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 0 0 0.6rem 0;
+}
+
+.site-footer a {
+    color: #9fe8df;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.site-footer p {
+    margin: 0.25rem 0 0;
 }
