@@ -45,6 +45,52 @@
 			"isBackground": true,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "Build Esmeralda",
+			"type": "shell",
+			"command": "dotnet build \"Esmeralda/Esmeralda.csproj\" -nologo",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Esmeralda",
+			"type": "shell",
+			"command": "dotnet build \"Esmeralda/Esmeralda.csproj\" -nologo",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Check running Esmeralda process",
+			"type": "shell",
+			"command": "tasklist /FI \"IMAGENAME eq Esmeralda.exe\" /FO LIST",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Kill Esmeralda Process",
+			"type": "shell",
+			"command": "taskkill /F /IM Esmeralda.exe /T",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build Esmeralda",
+			"type": "shell",
+			"command": "dotnet build \"Esmeralda/Esmeralda.csproj\" -nologo",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
 		}
 	]
 }
