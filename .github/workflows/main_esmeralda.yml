@@ -56,7 +56,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_278849A7CA8948CBACE809A87703FEBA }}
 
       - name: Enable WebSockets (required for Blazor Server / SignalR)
-        run: az webapp config set --name Esmeralda --resource-group Esmeralda --web-sockets-enabled true
+        run: az webapp config set --name Esmeralda --resource-group Esmeralda --web-sockets-enabled true --startup-file "dotnet Esmeralda.dll"
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
