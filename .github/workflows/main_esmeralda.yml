@@ -58,6 +58,15 @@ jobs:
       - name: Enable WebSockets (required for Blazor Server / SignalR)
         run: az webapp config set --name Esmeralda --resource-group Esmeralda --web-sockets-enabled true --startup-file "dotnet Esmeralda.dll"
 
+      - name: Configure app settings
+        run: >-
+          az webapp config appsettings set
+          --name Esmeralda
+          --resource-group Esmeralda
+          --settings
+          AZURE_INFERENCE_SDK_ENDPOINT="${{ secrets.AZURE_INFERENCE_SDK_ENDPOINT }}"
+          AZURE_INFERENCE_SDK_KEY="${{ secrets.AZURE_INFERENCE_SDK_KEY }}"
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3

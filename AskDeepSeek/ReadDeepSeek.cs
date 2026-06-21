@@ -13,10 +13,32 @@ namespace AskDeepSeek
     {
         public static async Task<string> TellFortune(TarotCard[] theseCards, string question)
         {
-            var endpoint = GetEnvironmentVariable("AZURE_INFERENCE_SDK_ENDPOINT") ?? "https://mike-mfc82j16-australiaeast.services.ai.azure.com/models";
-            var uri = new Uri(endpoint);
+            var endpoint =
+                GetEnvironmentVariable("AZURE_INFERENCE_SDK_ENDPOINT")
+                ?? GetEnvironmentVariable("AZURE_AI_INFERENCE_ENDPOINT")
+                ?? GetEnvironmentVariable("FOUNDRY_ENDPOINT");
 
-            var key = GetEnvironmentVariable("AZURE_INFERENCE_SDK_KEY") ?? "YOUR_KEY_HERE";
+            var key =
+                GetEnvironmentVariable("AZURE_INFERENCE_SDK_KEY")
+                ?? GetEnvironmentVariable("AZURE_AI_INFERENCE_KEY")
+                ?? GetEnvironmentVariable("FOUNDRY_KEY");
+
+            if (string.IsNullOrWhiteSpace(endpoint))
+            {
+                throw new InvalidOperationException(
+                    "Missing Azure inference endpoint. Set AZURE_INFERENCE_SDK_ENDPOINT (or AZURE_AI_INFERENCE_ENDPOINT). "
+                    + "For Azure AI Foundry Inference it usually looks like https://<resource>.services.ai.azure.com/models"
+                );
+            }
+
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                throw new InvalidOperationException(
+                    "Missing Azure inference key. Set AZURE_INFERENCE_SDK_KEY (or AZURE_AI_INFERENCE_KEY)."
+                );
+            }
+
+            var uri = new Uri(endpoint);
             AzureKeyCredential credential = new AzureKeyCredential(key);
             AzureAIInferenceClientOptions clientOptions = new AzureAIInferenceClientOptions();
 
@@ -52,7 +74,7 @@ namespace AskDeepSeek
                 Model = deploymentName
             };
 
-            Response<ChatCompletions> response = await Task.Run(() => client.Complete(requestOptions));
+            Response<ChatCompletions> response = await client.CompleteAsync(requestOptions);
             return Regex.Replace(response.Value.Content, @"<think>.*?</think>", string.Empty, RegexOptions.Singleline);
         }
     }
