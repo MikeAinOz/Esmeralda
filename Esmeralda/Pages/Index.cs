@@ -13,9 +13,9 @@ namespace Esmeralda.Pages
         private string? card1 = "img/1-23.png";
         private string? card2 = "img/1-23.png";
         private string? card3 = "img/1-23.png";
-        private string? card1name = "";
-        private string? card2name = "";
-        private string? card3name = "";
+        private string? card1name = "Past";
+        private string? card2name = "Present";
+        private string? card3name = "Future";
         private string? enteredText = null;
         private bool disabled = false;
         private bool isLoading = false;

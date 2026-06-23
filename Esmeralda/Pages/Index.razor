@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Esmeralda — Tarot of the Wandering Stars</PageTitle>
 <div id="constellationContainer">
     <canvas id="constellationCanvas"></canvas>
 </div>
@@ -47,8 +47,8 @@
     </button>
 </div>
 <div class="m-3">
-    <div id="responseArea">
-        @esmeraldaResponse
+    <div id="responseArea" class="esm-response-area" style="display:@(esmeraldaResponse is not null ? "block" : "none")">
+        <p class="esm-response-text">@esmeraldaResponse</p>
         @if (esmeraldaResponse is not null)
         {
             <div class="mt-3">
@@ -64,9 +64,12 @@
 </div>
 <style>
     @@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+    @@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400&family=Lora:ital,wght@0,400;1,400&display=swap');
+    @@import url('https://cdn.jsdelivr.net/npm/@@tabler/icons-webfont@@latest/tabler-icons.min.css');
 
+ 
     .btn-esmeralda {
-        font-family: 'Cookie', cursive;
+        font-family: 'Cinzel Decorative', serif;;
         font-size: 1.7rem;
         background-color: #7b2cbf;
         color: #f4d35e;
@@ -85,6 +88,43 @@
         border-color: #7b2cbf;
         color: #e9c94f;
         opacity: 0.65;
+    }
+    /* ── Header ──────────────────────────────────── */
+    .esm-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .esm-title {
+        font-family: 'Cinzel Decorative', serif;
+        font-size: clamp(1.6rem, 5vw, 2.4rem);
+        color: #7b2cbf;
+        letter-spacing: 0.05em;
+        margin: 0 0 0.3rem;
+        font-weight: 400;
+    }
+
+    /* ── Response area ───────────────────────────── */
+    .esm-response-area {
+        background: rgba(20, 10, 45, 0.55);
+        border: 1px solid rgba(180, 150, 255, 0.2);
+        border-radius: 10px;
+        padding: 1.5rem;
+        animation: fadeIn 0.6s ease;
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .esm-response-text {
+        font-family: 'Lora', serif;
+        font-style: italic;
+        font-size: 1rem;
+        color: #ddd0f5;
+        line-height: 1.8;
+        margin: 0;
     }
 </style>
 <script>
