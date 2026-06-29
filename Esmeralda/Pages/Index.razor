@@ -6,21 +6,21 @@
 </div>
 <h1>Hello, Seeker!</h1>
 
-<div class="row">
-    <div class="fixed-width-col">
-        <figure>
+<div class="row g-3 justify-content-center tarot-card-row">
+    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+        <figure class="tarot-card">
             <img src="@card1" class="my-image img-fluid" alt="@card1name">
             <figcaption class="text-center">@card1name</figcaption>
         </figure>
     </div>
-    <div class="fixed-width-col">
-        <figure>
+    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+        <figure class="tarot-card">
             <img src="@card2" class="my-image img-fluid" alt="@card2name">
             <figcaption class="text-center">@card2name</figcaption>
         </figure>
     </div>
-    <div class="fixed-width-col">
-        <figure>
+    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+        <figure class="tarot-card">
             <img src="@card3" class="my-image img-fluid" alt="@card3name">
             <p class="text-center">@card3name</p>
         </figure>
@@ -125,6 +125,27 @@
         color: #ddd0f5;
         line-height: 1.8;
         margin: 0;
+    }
+
+    .tarot-card-row {
+        margin-inline: auto;
+        max-width: 64rem;
+    }
+
+    .tarot-card-col {
+        display: flex;
+        justify-content: center;
+    }
+
+    .tarot-card {
+        width: min(100%, 16rem);
+        margin: 0;
+    }
+
+    .tarot-card .my-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 </style>
 <script>
