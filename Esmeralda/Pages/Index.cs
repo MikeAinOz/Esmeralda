@@ -3,6 +3,7 @@ using AskDeepSeek;
 using LoadTarot;
 using Markdig;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Http;
 
 namespace Esmeralda.Pages
@@ -20,6 +21,14 @@ namespace Esmeralda.Pages
         private bool disabled = false;
         private bool isLoading = false;
         private MarkupString? esmeraldaResponse = null;
+
+        private async Task HandleQuestionKeyDown(KeyboardEventArgs args)
+        {
+            if (args.Key == "Enter" && !disabled)
+            {
+                await LoadCards();
+            }
+        }
 
         private async Task LoadCards()
         {

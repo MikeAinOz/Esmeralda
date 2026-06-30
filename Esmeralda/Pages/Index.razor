@@ -4,22 +4,25 @@
 <div id="constellationContainer">
     <canvas id="constellationCanvas"></canvas>
 </div>
-<h1>Hello, Seeker!</h1>
+<div class="index-header-row">
+    <h1 class="esm-question-title">Hello Seeker</h1>
+    <a href="/about" class="index-about-link">About</a>
+</div>
 
-<div class="row g-3 justify-content-center tarot-card-row">
-    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+<div class="row g-2 justify-content-center tarot-card-row">
+    <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
             <img src="@card1" class="my-image img-fluid" alt="@card1name">
             <figcaption class="text-center">@card1name</figcaption>
         </figure>
     </div>
-    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+    <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
             <img src="@card2" class="my-image img-fluid" alt="@card2name">
             <figcaption class="text-center">@card2name</figcaption>
         </figure>
     </div>
-    <div class="col-12 col-sm-6 col-lg-4 tarot-card-col">
+    <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
             <img src="@card3" class="my-image img-fluid" alt="@card3name">
             <p class="text-center">@card3name</p>
@@ -29,8 +32,11 @@
 
     
 <div class="m-3">
-    <p>What is your question, seeker?</p>
-    <InputText @bind-Value="@enteredText" Disabled="@disabled" Placeholder="What do you seek?" class="w-100" />
+    <InputText @bind-Value="@enteredText"
+               @onkeydown="HandleQuestionKeyDown"
+               Disabled="@disabled"
+               Placeholder="What do you seek?"
+               class="w-100 question-input" />
 </div>
 
 <div class="m-3">
@@ -146,6 +152,46 @@
         width: 100%;
         max-width: 100%;
         height: auto;
+    }
+
+    .index-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        gap: 1rem;
+    }
+
+    .index-about-link {
+        color: #9fe8df;
+        text-decoration: none;
+        font-family: 'Cinzel', serif;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+    }
+
+    .index-about-link:hover {
+        text-decoration: underline;
+    }
+
+    .esm-question-title {
+        font-family: 'Lora', serif;
+        font-size: 1.4rem;
+        color: darkolivegreen;
+        margin: 0;
+    }
+
+    .question-input {
+        font-family: 'Lora', serif;
+        font-size: 1.1rem;
+        color: darkolivegreen;
+    }
+
+    .question-input::placeholder {
+        font-family: 'Lora', serif;
+        font-size: 1.1rem;
+        color: darkolivegreen;
+        opacity: 1;
     }
 </style>
 <script>
