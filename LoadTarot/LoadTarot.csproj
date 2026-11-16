@@ -8,34 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="4.1.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\1-01.png" />
-    <None Update="Data\1-02.png" />
-    <None Update="Data\1-03.png" />
-    <None Update="Data\1-04.png" />
-    <None Update="Data\1-05.png" />
-    <None Update="Data\1-06.png" />
-    <None Update="Data\1-07.png" />
-    <None Update="Data\1-08.png" />
-    <None Update="Data\1-09.png" />
-    <None Update="Data\1-10.png" />
-    <None Update="Data\1-11.png" />
-    <None Update="Data\1-12.png" />
-    <None Update="Data\1-13.png" />
-    <None Update="Data\1-14.png" />
-    <None Update="Data\1-15.png" />
-    <None Update="Data\1-16.png" />
-    <None Update="Data\1-17.png" />
-    <None Update="Data\1-18.png" />
-    <None Update="Data\1-19.png" />
-    <None Update="Data\1-20.png" />
-    <None Update="Data\1-21.png" />
-    <None Update="Data\1-22.png" />
-    <None Update="Data\1-23.png" />
-    <None Update="Data\MajorArcana.json" />
+    <None Update="data\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
