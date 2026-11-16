@@ -1,6 +1,4 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
-namespace LoadTarot
+﻿namespace LoadTarot
 {
     public class Tarot
     {
@@ -8,7 +6,6 @@ namespace LoadTarot
         public static TarotCard[] CreateCards(int _numberOfCards)
         {
             MajorArcana majorArcana = MajorArcana.LoadJson();
-            var imageService = new ImageService();
             int[] cardNumbers = new int[_numberOfCards];
             TarotCard[] tarotCards = new TarotCard[_numberOfCards];
             for (int i = 0; i < cardNumbers.Length; i++)
@@ -29,32 +26,13 @@ namespace LoadTarot
                 string filePath = Path.Combine(AppContext.BaseDirectory, "data", majorArcana.items[newRandom].filename);
                 var imageBytes = File.ReadAllBytes(filePath);
                 var inverted = random.Next(2) == 1;
-                byte[]? cardImage;
-                if (inverted)
-                {
-                    using (var image = Image.Load(imageBytes))
-                    {
-                        image.Mutate(x => x.Rotate(180));
-
-                        // Convert back to bytes
-                        using (var outputStream = new MemoryStream())
-                        {
-                            image.SaveAsPng(outputStream); // or SaveAsJpeg, etc.
-                            cardImage = outputStream.ToArray();
-
-                            
-                        }
-                    }
-                } else
-                {
-                    cardImage = imageBytes;
-                }
-                //    var cardImage = inverted ? imageService.(imageBytes) : imageBytes;
+                // Reversed cards are rotated 180° in the browser via CSS, so we
+                // always keep the original image bytes here.
                 tarotCards[j] = new TarotCard(
                     newRandom,
                     majorArcana.items[newRandom].name,
                     inverted,
-                    cardImage,
+                    imageBytes,
                     majorArcana.items[newRandom].divination
                     );
                 Console.WriteLine(" Card " + tarotCards[j].DisplayName);

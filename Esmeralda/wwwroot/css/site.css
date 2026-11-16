@@ -123,6 +123,10 @@ button.btn-teal:disabled {
     max-width: 100%;
     height: auto;
 }
+
+.my-image.inverted {
+    transform: rotate(180deg);
+}
 .fixed-width-col {
     width: 250px;
     max-width: 250px;

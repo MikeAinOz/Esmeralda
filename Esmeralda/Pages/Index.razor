@@ -12,19 +12,19 @@
 <div class="row g-2 justify-content-center tarot-card-row">
     <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
-            <img src="@card1" class="my-image img-fluid" alt="@card1name">
+            <img src="@card1" class="my-image img-fluid@(card1Inverted ? " inverted" : "")" alt="@card1name">
             <figcaption class="text-center">@card1name</figcaption>
         </figure>
     </div>
     <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
-            <img src="@card2" class="my-image img-fluid" alt="@card2name">
+            <img src="@card2" class="my-image img-fluid@(card2Inverted ? " inverted" : "")" alt="@card2name">
             <figcaption class="text-center">@card2name</figcaption>
         </figure>
     </div>
     <div class="col-4 tarot-card-col">
         <figure class="tarot-card">
-            <img src="@card3" class="my-image img-fluid" alt="@card3name">
+            <img src="@card3" class="my-image img-fluid@(card3Inverted ? " inverted" : "")" alt="@card3name">
             <p class="text-center">@card3name</p>
         </figure>
     </div>

@@ -17,6 +17,9 @@ namespace Esmeralda.Pages
         private string? card1name = "Past";
         private string? card2name = "Present";
         private string? card3name = "Future";
+        private bool card1Inverted = false;
+        private bool card2Inverted = false;
+        private bool card3Inverted = false;
         private string? enteredText = null;
         private bool disabled = false;
         private bool isLoading = false;
@@ -43,10 +46,13 @@ namespace Esmeralda.Pages
                 TarotCard[] cardNumbers = Tarot.CreateCards(numberOfCards);
                 card1 = cardNumbers[0].ImageAsBase64;
                 card1name = cardNumbers[0].DisplayName;
+                card1Inverted = cardNumbers[0].Inverted;
                 card2 = cardNumbers[1].ImageAsBase64;
                 card2name = cardNumbers[1].DisplayName;
+                card2Inverted = cardNumbers[1].Inverted;
                 card3 = cardNumbers[2].ImageAsBase64;
                 card3name = cardNumbers[2].DisplayName;
+                card3Inverted = cardNumbers[2].Inverted;
 
                // var fortune = await ReadTheCards.TellFortune(cardNumbers, enteredText);
                 var fortune = await ReadDeepSeek.TellFortune(cardNumbers, enteredText);
